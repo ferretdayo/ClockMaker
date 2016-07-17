@@ -1,27 +1,48 @@
 html, body {
-    height: 100%;
+    padding: 0;
+    margin: 0;
 }
-
-body {
+nav{
+    display: block;
+    position: fixed;
     margin: 0;
     padding: 0;
     width: 100%;
-    display: table;
-    font-weight: 100;
-    font-family: 'Lato';
+    background-color: rgba(16, 166, 222, 0.65);
 }
-
+ul{
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+ul li.title{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    float: left;
+}
+ul li.menu{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    float: right;
+}
+ul li a{
+    font-weight: bold;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    border-bottom: solid 3px rgba(16, 166, 222, 0.65);
+    width: 100px;
+    padding: 10px 10px;
+    font-size: 20px;
+}
+ul li a:hover{
+    border-bottom: solid 3px rgba(16, 61, 222, 0.87);
+}
+section{
+}
 .container {
     text-align: center;
-    display: table-cell;
     vertical-align: middle;
-}
-
-.content {
-    text-align: center;
-    display: inline-block;
-}
-
-.title {
-    font-size: 96px;
 }
