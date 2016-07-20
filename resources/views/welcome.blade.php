@@ -6,6 +6,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
         <link href="{{asset('/css/nomalize.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('/css/welcome.css')}}" rel="stylesheet" type="text/css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     </head>
     <body>
         <nav>
@@ -27,17 +28,21 @@
         </section>
         <section>
             <div class="container">
+                <!-- 無地の時計 -->
                 <canvas id="clock" width="500" height="500"></canvas>
+                <!-- 時が入力された時計のプレビュー -->
+                <canvas id="clock_preview" width="500" height="500" hidden></canvas>
             </div>
             <div class="container">
                 @for($i = 0; $i < 12; $i++)
-                    <input type="text" name="{{$i+1}}" placeholder="{{$i+1}}" />
+                    <input type="text" id="{{$i+1}}" name="{{$i+1}}" placeholder="{{$i+1}}" />
                 @endfor
             </div>
+            <button id="preview">プレビュー</button><button id="post">Twitterに投稿</button>
         </section>
         <script>
             var clock = document.getElementById('clock');
-
+            var ctx = clock.getContext('2d');
             onload = function(){
                 drawClock();
             }
@@ -63,7 +68,7 @@
                 }
 
                 //円の作成
-                var ctx = clock.getContext('2d');
+                //var ctx = clock.getContext('2d');
                 ctx.beginPath();
                 ctx.lineWidth = 5;
                 ctx.arc(250, 250, 200, 0, Math.PI*2, true);
@@ -96,6 +101,23 @@
                 ctx.restore();
 
             }
+            $(function(){
+                $('button[id=preview]').on('click', function(){
+                    $('canvas').hide();
+                    //TODO previewの時計の再描画(文字と一緒に)
+                    $('canvas[id=clock_preview]').show();
+                });
+                $('button[id=post]').on('click', function(){
+                    //TODO Twitterに投稿
+                });
+                $("input[type=text]").on('change', function(){
+
+                    // ctx.save();
+                    // console.log($(this).attr('name'));
+                    // ctx.fillText($(this).val(), 250, 20);
+                    // ctx.restore();
+                });
+            })
         </script>
     </body>
 </html>
