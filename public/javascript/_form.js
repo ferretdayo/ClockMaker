@@ -1,10 +1,10 @@
 var HourForm = Vue.extend({
     template: `
         <div v-for="hourData in hourObj">
-            <input type="text" v-model="hourData.hour" placeholder="{{hourData.hour}}">
-            <input type="text" v-model="hourData.size"><br>
-            x : <input type="number" v-model="hourData.x">
-            y : <input type="number" v-model="hourData.y">
+            <input type="text" v-model="hourData.hour" placeholder="磁針">
+            <input type="text" v-model="hourData.size" placeholder="文字サイズ(px)"><br>
+            x : <input type="number" v-model="hourData.x" placeholder="x軸">
+            y : <input type="number" v-model="hourData.y" placeholder="y軸">
         </div>
     `,
     data: function(){
