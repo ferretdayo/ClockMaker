@@ -41,15 +41,16 @@ var formApp = new Vue({
             {hour: 9, size: 40, x: 90, y: 265},
             {hour: 10, size: 40, x: 105, y: 190},
             {hour: 11, size: 40, x: 155, y: 140},
-            {hour: 12, size: 40, x: 225, y: 120},
+            {hour: 12, size: 40, x: 225, y: 120}
         ]
     },
-    //TODO まだ動かない・・・
-    //this.hourObjの監視をしたいけど．．．
+    //hourObjの値が変わった際，親にデータを渡す
     created: function(){
         this.$watch('hourObj', function(newVal, oldVal){
             console.log(this.hourObj);
             this.$dispatch('hourData', this.hourObj);
+        }, {
+            deep:true
         });
     }
 });

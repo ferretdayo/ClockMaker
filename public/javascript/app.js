@@ -21,6 +21,7 @@ var app = new Vue({
     methods: {
         //時計の描画
         draw: function(){
+            this.ctx.clearRect(0, 0, 500, 500);
             this.drawClock();
         },
         //メモリを書く関数
@@ -77,6 +78,7 @@ var app = new Vue({
             //時間のレンダリング
             for(var i = 0; i < this.hourObj.length; i++){
                 this.ctx.save();
+                console.log(this.hourObj[i].hour);
                 this.ctx.font = this.hourObj[i].size + 'px Century Gothic';
                 this.ctx.fillText(this.hourObj[i].hour, this.hourObj[i].x, this.hourObj[i].y);
                 this.ctx.restore();
@@ -89,9 +91,9 @@ var app = new Vue({
             hourDataが変更された時に子からイベントを受け取り，canvasに反映させる
         */
         'hourData': function(hourData){
-            console.log("event");
-            this.hourData = hourData;
-            console.log(this.hourData);
+            console.log("catch");
+            this.hourObj = hourData;
+            this.draw();
         }
     }
 });
