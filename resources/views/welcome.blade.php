@@ -6,6 +6,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
         <link href="{{asset('/css/nomalize.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('/css/welcome.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('/css/form.css')}}" rel="stylesheet" type="text/css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
     </head>
@@ -32,13 +33,13 @@
                 <!-- 無地の時計 -->
                 <canvas id="clock" width="500" height="500"></canvas>
             </div>
-            <div class="container">
-                <hour-form></hour-form>
+            <div class="container" id="form">
+                <!-- 時針やフォントサイズなどの入力欄(Vue.jsで表示) -->
             </div>
             <button id="preview">プレビュー</button><button id="post">Twitterに投稿</button>
         </section>
-        <script src="{{asset('/javascript/_form.js')}}"></script>
         <script src="{{asset('/javascript/app.js')}}"></script>
+        <script src="{{asset('/javascript/_form.js')}}"></script>
         <script>
             onload = function(){
                 //drawClock(hourObj);

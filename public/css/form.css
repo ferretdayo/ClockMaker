@@ -1,0 +1,36 @@
+table{
+    margin: 0 auto;
+}
+input{
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    border: 1px solid #DDDDDD;
+    text-align: right;
+    padding: 10px;
+    font-size: 14px;
+    margin:0 0 20px;
+}
+
+input:focus{
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    text-align: right;
+    padding: 10px;
+    font-size: 14px;
+    margin:0 0 20px;
+    border: 1px solid rgba(81, 203, 238, 1);
+}
+input{
+    text-align: right;
+    padding: 10px;
+    font-size: 14px;
+    margin:0 0 20px;
+}
+input:focus{
+    box-shadow: : 0 0 1px rgb(204, 146, 18);
+}
+.font-size, .x, .y{
+    width: 50px;
+}
