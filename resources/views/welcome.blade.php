@@ -6,8 +6,11 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
         <link href="{{asset('/css/nomalize.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('/css/welcome.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('/css/form.css')}}" rel="stylesheet" type="text/css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
     </head>
-    <body>
+    <body id="vue">
         <nav>
             <ul>
                 <li class="title"><a href="#">ClockMakerだよ</a></li>
@@ -27,75 +30,36 @@
         </section>
         <section>
             <div class="container">
+                <!-- 無地の時計 -->
                 <canvas id="clock" width="500" height="500"></canvas>
             </div>
-            <div class="container">
-                @for($i = 0; $i < 12; $i++)
-                    <input type="text" name="{{$i+1}}" placeholder="{{$i+1}}" />
-                @endfor
+            <div class="container" id="form">
+                <!-- 時針やフォントサイズなどの入力欄(Vue.jsで表示) -->
             </div>
+            <button id="preview">プレビュー</button><button id="post">Twitterに投稿</button>
         </section>
+        <script src="{{asset('/javascript/app.js')}}"></script>
+        <script src="{{asset('/javascript/_form.js')}}"></script>
         <script>
-            var clock = document.getElementById('clock');
-
             onload = function(){
-                drawClock();
+                //drawClock(hourObj);
+                app.draw();
             }
 
-            function drawClock(){
-                var date = new Date();
+            $(function(){
+                $('button[id=preview]').on('click', function(){
+                });
+                $('button[id=post]').on('click', function(){
+                    //TODO Twitterに投稿
+                });
+                $("input[type=text]").on('change', function(){
 
-                //メモリを書く関数
-                function scale(scaleType, lineHeight, lineWidth){
-                    var rotate = scaleType === "minute" ? Math.PI/30 : scaleType === "hour" ? Math.PI/6 : -1;
-                    if(rotate === -1) return;
-                    ctx.save();
-                    ctx.translate(250,250);
-                    ctx.lineWidth = lineWidth;
-                    for(var i = 0; i < 60; i++){
-                        ctx.beginPath();
-                        ctx.rotate(rotate);
-                        ctx.moveTo(200-lineHeight, 0);
-                        ctx.lineTo(200, 0);
-                        ctx.stroke();
-                    }
-                    ctx.restore();
-                }
-
-                //円の作成
-                var ctx = clock.getContext('2d');
-                ctx.beginPath();
-                ctx.lineWidth = 5;
-                ctx.arc(250, 250, 200, 0, Math.PI*2, true);
-                ctx.stroke();
-
-                //分の目盛
-                scale("minute", 20, 2);
-                //時の目盛
-                scale("hour", 30, 5);
-
-                //時針
-        		ctx.save();
-                ctx.translate(250,250);
-                ctx.rotate(Math.PI/6 * (date.getHours() + date.getMinutes() / 60) - Math.PI/2);
-        		ctx.lineWidth = 8;
-        		ctx.beginPath();
-        		ctx.moveTo(-5, 0);
-        		ctx.lineTo(80, 0);
-        		ctx.stroke();
-        		ctx.restore();
-                //分針
-                ctx.save();
-                ctx.translate(250,250);
-                ctx.rotate(Math.PI/30 * (date.getMinutes() + date.getSeconds() / 60) - Math.PI/2);
-                ctx.lineWidth = 4;
-                ctx.beginPath();
-                ctx.moveTo(-5, 0);
-                ctx.lineTo(100, 0);
-                ctx.stroke();
-                ctx.restore();
-
-            }
+                    // ctx.save();
+                    // console.log($(this).attr('name'));
+                    // ctx.fillText($(this).val(), 250, 20);
+                    // ctx.restore();
+                });
+            })
         </script>
     </body>
 </html>
