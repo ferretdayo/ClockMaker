@@ -10,9 +10,9 @@ var formApp = new Vue({
                 <th>y軸</th>
             </thead>
             <tbody>
-                <tr v-for="(key, hourData) in hourObj" class="form-group">
+                <tr v-for="hourData in hourObj" class="form-group">
                     <td>
-                        <input type="text" class="hour" v-model="hourObj[key].hour" placeholder="磁針">
+                        <input type="text" class="hour" v-model="hourData.hour" placeholder="磁針">
                     </td>
                     <td>
                         <input type="number" class="font-size" v-model="hourData.size" placeholder="文字サイズ(px)">
@@ -54,4 +54,3 @@ var formApp = new Vue({
         });
     }
 });
-console.log(formApp.$parent.ctx);

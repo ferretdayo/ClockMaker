@@ -2,6 +2,7 @@ var app = new Vue({
     el: "#vue",
     data : {
         //canvas用の変数
+        cvs: document.getElementById('clock'),
         ctx: document.getElementById('clock').getContext('2d'),
         hourObj: [
             {hour: 1, size: 40, x: 315, y: 140},
@@ -78,7 +79,6 @@ var app = new Vue({
             //時間のレンダリング
             for(var i = 0; i < this.hourObj.length; i++){
                 this.ctx.save();
-                console.log(this.hourObj[i].hour);
                 this.ctx.font = this.hourObj[i].size + 'px Century Gothic';
                 this.ctx.fillText(this.hourObj[i].hour, this.hourObj[i].x, this.hourObj[i].y);
                 this.ctx.restore();
