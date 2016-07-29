@@ -36,9 +36,11 @@
                     </div>
                 </div>
             </div>
-            <div id="post">
+            <form id="post" action="/" method="post">
+                {{ csrf_field() }}
+                <input type="text" name="img" v-model="img" hidden/>
                 <button v-on:click='submit'>Twitterに投稿</button>
-            </div>
+            </form>
         </section>
         <script>
             window.onload = function(){

@@ -14,4 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::post('/tweet', 'TweetController@authenticate');
+Route::post('/', 'TweetController@authenticate');
+Route::get('/get', 'TweetController@index');
