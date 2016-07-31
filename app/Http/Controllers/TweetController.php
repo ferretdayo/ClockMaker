@@ -15,16 +15,30 @@ class TweetController extends BaseController
     use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
 
     public function authenticate(Request $request){
-        $img = $request->input('img');
+        $request->session()->put('img', $request->input('img'));
         $access_token = env('ACCESS_TOKEN');
         $access_token_secret = env('ACCESS_TOKEN_SECRET');
-        $connection = new TwitterOAuth(env('API_KEY'), env('API_SECRET'), $access_token, $access_token_secret);
-        $content = $connection->get("account/verify_credentials");
-        var_dump($content);
-
+        $connection = new TwitterOAuth(env('API_KEY'), env('API_SECRET'));
+        $request_token = $connection->oauth('oauth/request_token');
+        var_dump($request_token);
+        $request->session()->put('oauth_token', $request_token['oauth_token']);
+        $request->session()->put('oauth_token_secret', $request_token['oauth_token_secret']);
+        $url = $connection->url('oauth/authorize', array('oauth_token' => $request_token['oauth_token']));
+        var_dump($url);
+        header('Location: '.$url);
+        exit;
     }
 
-    public function index(){
+    public function index(Request $request){
+        if (isset($request->input('oauth_token')) && !empty($request->input('oauth_token')) && isset($request->input('oauth_verifier')) && !empty($request->input('oauth_verifier'))) {
+            $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $request->session()->get('oauth_token'), $request->session()->get('oauth_token_secret'));
+            $access_token = $connection->oauth("oauth/access_token", ["oauth_verifier" => $request->input('oauth_verifier')]);
+            $request->session()->put('access_token', $access_token);
+        }
+        return view('welcome');
+    }
+
+    public function get(){
         echo "aaa";
     }
 }
