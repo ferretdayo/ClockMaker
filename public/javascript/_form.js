@@ -5,7 +5,7 @@ var formApp = new Vue({
         <table>
             <thead>
                 <th>時針</th>
-                <th>サイズ</th>
+                <th style="font-size: 14px">文字サイズ</th>
                 <th>x軸</th>
                 <th>y軸</th>
             </thead>
@@ -18,10 +18,10 @@ var formApp = new Vue({
                         <input type="number" class="font-size" v-model="hourData.size" placeholder="文字サイズ(px)">
                     </td>
                     <td>
-                        <input type="number" class="x" v-model="hourData.x" placeholder="x軸">
+                        <input type="range" max="500" min="0" class="x" v-model="hourData.x" placeholder="x軸">
                     </td>
                     <td>
-                        <input type="number" class="y" v-model="hourData.y" placeholder="y軸">
+                        <input type="range" max="500" min="0" class="y" v-model="hourData.y" placeholder="y軸">
                     </td>
                 </tr>
             </tbody>

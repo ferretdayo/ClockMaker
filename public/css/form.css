@@ -31,6 +31,12 @@ input{
 input:focus{
     box-shadow: : 0 0 1px rgb(204, 146, 18);
 }
-.font-size, .x, .y{
+.font-size{
     width: 50px;
+}
+.x, .y{
+    width: 120px;
+}
+.hour{
+    width: 130px;
 }
