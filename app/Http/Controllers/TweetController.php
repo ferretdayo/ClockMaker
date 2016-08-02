@@ -31,7 +31,7 @@ class TweetController extends BaseController
 
     public function index(Request $request){
         if (!empty($request->input('oauth_token')) && !empty($request->input('oauth_verifier'))) {
-            $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $request->session()->get('oauth_token'), $request->session()->get('oauth_token_secret'));
+            $connection = new TwitterOAuth(env('API_KEY'), env('API_SECRET'), $request->session()->get('oauth_token'), $request->session()->get('oauth_token_secret'));
             $access_token = $connection->oauth("oauth/access_token", ["oauth_verifier" => $request->input('oauth_verifier')]);
             $request->session()->put('access_token', $access_token);
         }
