@@ -2,9 +2,9 @@
 <html>
     <head>
         <title>ClockMaker</title>
-        <link href="{{asset('/css/nomalize.css')}}" rel="stylesheet" type="text/css" />
-        <link href="{{asset('/css/welcome.css')}}" rel="stylesheet" type="text/css" />
-        <link href="{{asset('/css/form.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{secure_asset('/css/nomalize.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{secure_asset('/css/welcome.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{secure_asset('/css/form.css')}}" rel="stylesheet" type="text/css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
         <script src="https://cdn.jsdelivr.net/vue.resource/0.9.3/vue-resource.min.js"></script>
     </head>
@@ -48,8 +48,8 @@
                 app.draw();
             }
         </script>
-        <script src="{{asset('/javascript/app.js')}}"></script>
-        <script src="{{asset('/javascript/_form.js')}}"></script>
-        <script src="{{asset('/javascript/_button.js')}}"></script>
+        <script src="{{secure_asset('/javascript/app.js')}}"></script>
+        <script src="{{secure_asset('/javascript/_form.js')}}"></script>
+        <script src="{{secure_asset('/javascript/_button.js')}}"></script>
     </body>
 </html>
