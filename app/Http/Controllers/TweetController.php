@@ -16,8 +16,8 @@ class TweetController extends BaseController
 
     public function authenticate(Request $request){
         $request->session()->put('img', $request->input('img'));
-        $access_token = env('ACCESS_TOKEN');
-        $access_token_secret = env('ACCESS_TOKEN_SECRET');
+        // $access_token = env('ACCESS_TOKEN');
+        // $access_token_secret = env('ACCESS_TOKEN_SECRET');
         $connection = new TwitterOAuth(env('API_KEY'), env('API_SECRET'));
         $request_token = $connection->oauth('oauth/request_token');
         var_dump($request_token);
