@@ -9,7 +9,7 @@ nav{
     margin: 0;
     padding: 0;
     width: 100%;
-    background-color: rgba(16, 166, 222, 0.65);
+    background-color: rgb(238, 181, 92);
 }
 ul{
     width: 100%;
@@ -34,13 +34,14 @@ ul li a{
     display: block;
     text-decoration: none;
     text-align: center;
-    border-bottom: solid 3px rgba(16, 166, 222, 0.65);
+    border-bottom: solid 3px rgb(224, 149, 35);
     width: 180px;
     padding: 10px 10px;
     font-size: 20px;
+    color: white;
 }
 ul li a:hover{
-    border-bottom: solid 3px rgba(16, 61, 222, 0.87);
+    border-bottom: solid 3px rgb(172, 122, 45);
 }
 section.header{
     padding-top: 60px;
@@ -58,6 +59,20 @@ h1{
 canvas{
     margin: 0 auto;
 }
+button{
+    width: 100%;
+    height: 40px;
+    background-color: rgb(92,222,238);
+    cursor: pointer;
+    box-shadow:2px 2px 2px #555;
+}
+button:hover{
+    background-color: rgb(67, 180, 194);
+}
+form{
+    padding: 0 auto;
+}
+
 @media screen and (min-width: 1000px){
     .grid{
         display: flex;

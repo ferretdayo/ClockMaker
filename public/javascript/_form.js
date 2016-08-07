@@ -6,8 +6,8 @@ var formApp = new Vue({
             <thead>
                 <th class="hour">時針</th>
                 <th class="font-size" style="font-size: 14px;">文字サイズ</th>
-                <th class="x">x軸</th>
-                <th class="x">y軸</th>
+                <th class="x">横軸</th>
+                <th class="x">縦軸</th>
             </thead>
             <tbody>
                 <tr v-for="hourData in hourObj" class="form-group">
