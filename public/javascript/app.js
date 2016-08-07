@@ -23,6 +23,14 @@ var app = new Vue({
         //時計の描画
         draw: function(){
             this.ctx.clearRect(0, 0, 500, 500);
+
+            //背景色を設定
+            this.ctx.save();
+            this.ctx.fillStyle = 'rgb(255, 255, 255)';
+            this.ctx.fillRect(0, 0, 500, 500);
+        	this.ctx.restore();
+
+            //時計の描画
             this.drawClock();
         },
         //メモリを書く関数

@@ -9,33 +9,43 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 use Abraham\TwitterOAuth\TwitterOAuth;
+use Session;
+use Log;
+use Redirect;
 
 class TweetController extends BaseController
 {
     use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
 
     public function authenticate(Request $request){
-        $request->session()->put('img', $request->input('img'));
-        // $access_token = env('ACCESS_TOKEN');
-        // $access_token_secret = env('ACCESS_TOKEN_SECRET');
+        Session::put("img", $request->input('img'));
         $connection = new TwitterOAuth(env('API_KEY'), env('API_SECRET'));
-        $request_token = $connection->oauth('oauth/request_token', array('oauth_callback' => function(){echo "aa";}));
-        var_dump($request_token);
-        $request->session()->put('oauth_token', $request_token['oauth_token']);
-        $request->session()->put('oauth_token_secret', $request_token['oauth_token_secret']);
+        $request_token = $connection->oauth('oauth/request_token', array('oauth_callback' => env('OAUTH_CALLBACK')));
+        Session::put("oauth_token", $request_token['oauth_token']);
+        Session::put('oauth_token_secret', $request_token['oauth_token_secret']);
         $url = $connection->url('oauth/authorize', array('oauth_token' => $request_token['oauth_token']));
-        var_dump($url);
-        header('Location: '.$url);
-        exit;
+        return Redirect::to($url);
     }
 
     public function index(Request $request){
-        var_dump($request->input('oauth_token'));
-        var_dump($request->input('oauth_verifier'));
-        if (!empty($request->input('oauth_token')) && !empty($request->input('oauth_verifier'))) {
-            $connection = new TwitterOAuth(env('API_KEY'), env('API_SECRET'), $request->session()->get('oauth_token'), $request->session()->get('oauth_token_secret'));
+        Log::info("Session oauth_token indecx : ".Session::get('oauth_token'));
+        if (!empty($request->input('oauth_token')) && !empty($request->input('oauth_verifier')) && ($request->input('oauth_token') === Session::get('oauth_token'))){
+            $connection = new TwitterOAuth(env('API_KEY'), env('API_SECRET'), Session::get('oauth_token'), Session::get('oauth_token_secret'));
             $access_token = $connection->oauth("oauth/access_token", ["oauth_verifier" => $request->input('oauth_verifier')]);
-            $request->session()->put('access_token', $access_token);
+            Session::put('access_token', $access_token);
+
+            $connection = new TwitterOAuth(env('API_KEY'), env('API_SECRET'), $access_token['oauth_token'], $access_token['oauth_token_secret']);
+            $media = $connection->upload('media/upload', ['media' => Session::get('img')]);
+            var_dump($media);
+            $parameters = [
+                'status' => "APIからテスト",
+                'media_ids' => $media->media_id_string,
+            ];
+            try{
+                $result = $connection->post('statuses/update', $parameters);
+            } catch (ErrorException $e) {
+                Log::info("TweetError");
+            }
         }
         return view('welcome');
     }

@@ -4,10 +4,10 @@ var formApp = new Vue({
     template: `
         <table>
             <thead>
-                <th>時針</th>
-                <th style="font-size: 14px">文字サイズ</th>
-                <th>x軸</th>
-                <th>y軸</th>
+                <th class="hour">時針</th>
+                <th class="font-size" style="font-size: 14px;">文字サイズ</th>
+                <th class="x">x軸</th>
+                <th class="x">y軸</th>
             </thead>
             <tbody>
                 <tr v-for="hourData in hourObj" class="form-group">
