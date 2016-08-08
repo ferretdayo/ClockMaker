@@ -2,6 +2,7 @@ html, body {
     padding: 0;
     margin: 0;
     font-family: Helvetica , "游ゴシック" , "Yu Gothic" , sans-serif;
+    background-color: rgb(253,243,208);
 }
 nav{
     display: block;
@@ -38,7 +39,7 @@ ul li a{
     width: 180px;
     padding: 10px 10px;
     font-size: 20px;
-    color: white;
+    color: rgb(108,92,238);
 }
 ul li a:hover{
     border-bottom: solid 3px rgb(172, 122, 45);
@@ -61,10 +62,11 @@ canvas{
 }
 button{
     width: 100%;
-    height: 40px;
+    height: 50px;
     background-color: rgb(92,222,238);
     cursor: pointer;
     box-shadow:2px 2px 2px #555;
+    margin: 0 0 50px;
 }
 button:hover{
     background-color: rgb(67, 180, 194);
