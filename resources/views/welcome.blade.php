@@ -46,6 +46,15 @@
                 <button v-on:click='submit'>Twitterに投稿</button>
             </form>
         </section>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- ClockMaker -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:728px;height:90px"
+             data-ad-client="ca-pub-4016648107125112"
+             data-ad-slot="9587876185"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
         <footer>
             <div class="copyright">
                 © 2016 ferretdayo
