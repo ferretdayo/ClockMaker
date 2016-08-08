@@ -47,7 +47,6 @@ var formApp = new Vue({
     //hourObjの値が変わった際，親にデータを渡す
     created: function(){
         this.$watch('hourObj', function(newVal, oldVal){
-            console.log(this.hourObj);
             this.$dispatch('hourData', this.hourObj);
         }, {
             deep:true

@@ -99,7 +99,6 @@ var app = new Vue({
             hourDataが変更された時に子からイベントを受け取り，canvasに反映させる
         */
         'hourData': function(hourData){
-            console.log("catch");
             this.hourObj = hourData;
             this.draw();
         }
