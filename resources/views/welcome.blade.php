@@ -4,9 +4,9 @@
         <title>ClockMaker</title>
         <meta name="google-site-verification" content="yl3ZCbSO6xVijdQ_51SwvhZA0rxMWphVChPqrhsCvwU" />
         <meta charset="utf-8" />
-        <link href="{{asset('/css/nomalize.css')}}" rel="stylesheet" type="text/css" />
-        <link href="{{asset('/css/welcome.css')}}" rel="stylesheet" type="text/css" />
-        <link href="{{asset('/css/form.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{secure_asset('/css/nomalize.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{secure_asset('/css/welcome.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{secure_asset('/css/form.css')}}" rel="stylesheet" type="text/css" />
         <link rel="icon" href="/img/favicon.png" />
         <link rel="shortcut icon" href="/img/favicon.png" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
@@ -76,9 +76,9 @@
                 return t;
             }(document, "script", "twitter-wjs"));
         </script>
-        <script src="{{asset('/javascript/app.js')}}"></script>
-        <script src="{{asset('/javascript/_form.js')}}"></script>
-        <script src="{{asset('/javascript/_button.js')}}"></script>
+        <script src="{{secure_asset('/javascript/app.js')}}"></script>
+        <script src="{{secure_asset('/javascript/_form.js')}}"></script>
+        <script src="{{secure_asset('/javascript/_button.js')}}"></script>
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
