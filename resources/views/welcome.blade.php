@@ -2,6 +2,8 @@
 <html>
     <head>
         <title>ClockMaker</title>
+        <meta name="google-site-verification" content="yl3ZCbSO6xVijdQ_51SwvhZA0rxMWphVChPqrhsCvwU" />
+        <meta charset="utf-8" />
         <link href="{{asset('/css/nomalize.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('/css/welcome.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('/css/form.css')}}" rel="stylesheet" type="text/css" />

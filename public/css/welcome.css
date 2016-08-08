@@ -2,7 +2,6 @@ html, body {
     padding: 0;
     margin: 0;
     font-family: Helvetica , "游ゴシック" , "Yu Gothic" , sans-serif;
-    background-color: rgb(253,243,208);
 }
 nav{
     display: block;
@@ -39,7 +38,7 @@ ul li a{
     width: 180px;
     padding: 10px 10px;
     font-size: 20px;
-    color: rgb(108,92,238);
+    color: white;
 }
 ul li a:hover{
     border-bottom: solid 3px rgb(172, 122, 45);
@@ -62,32 +61,16 @@ canvas{
 }
 button{
     width: 100%;
-    height: 50px;
+    height: 40px;
     background-color: rgb(92,222,238);
     cursor: pointer;
     box-shadow:2px 2px 2px #555;
-    margin: 0 0 50px;
 }
 button:hover{
     background-color: rgb(67, 180, 194);
 }
 form{
     padding: 0 auto;
-}
-
-footer{
-    width: 100%;
-    height: 100px;
-    background-color: rgb(238, 181, 92);
-    text-align: center;
-    padding: 10px;
-}
-
-div.copyright{
-}
-
-div.share{
-    margin-top: 10px;
 }
 
 @media screen and (min-width: 1000px){
