@@ -47,9 +47,12 @@ class TweetController extends BaseController
             //メディアのアップロードおよびツイートの投稿
             $connection = new TwitterOAuth(env('API_KEY'), env('API_SECRET'), $access_token['oauth_token'], $access_token['oauth_token_secret']);
             $media = $connection->upload('media/upload', ['media' => Session::get('img')]);
-            var_dump($media);
+
+            /*
+                時計の画像とコメントの投稿
+            */
             $parameters = [
-                'status' => "自分だけの時計を作成しました。APIからテスト",
+                'status' => "自分だけの時計を作成しました! #ClockMaker",
                 'media_ids' => $media->media_id_string,
             ];
             try{

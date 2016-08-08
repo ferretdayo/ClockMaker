@@ -15,7 +15,7 @@ var formApp = new Vue({
                         <input type="text" class="hour" v-model="hourData.hour" placeholder="磁針">
                     </td>
                     <td>
-                        <input type="number" class="font-size" v-model="hourData.size" placeholder="文字サイズ(px)">
+                        <input type="number" class="font-size" mim=1 v-model="hourData.size" placeholder="文字サイズ(px)">
                     </td>
                     <td>
                         <input type="range" max="500" min="0" class="x" v-model="hourData.x" placeholder="x軸">
