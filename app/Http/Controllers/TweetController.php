@@ -56,6 +56,7 @@ class TweetController extends BaseController
             } catch (ErrorException $e) {
                 Log::info("TweetError");
             }
+            return Redirect::to("/");
         }
         return view('welcome');
     }
