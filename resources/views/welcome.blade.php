@@ -68,8 +68,7 @@
         </footer>
         <script>
             window.onload = function(){
-                //drawClock(hourObj);
-                app.draw();
+                setInterval('app.draw();',1000);
             }
         </script>
         <script>window.twttr = (function(d, s, id) {

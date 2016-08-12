@@ -83,6 +83,17 @@ var app = new Vue({
             this.ctx.lineTo(100, 0);
             this.ctx.stroke();
             this.ctx.restore();
+            //秒針
+            this.ctx.save();
+            this.ctx.translate(250,250);
+            this.ctx.rotate(Math.PI/30 * date.getSeconds());
+            this.ctx.lineWidth = 2;
+            this.ctx.beginPath();
+            this.ctx.strokeStyle = "#cc0000";
+            this.ctx.moveTo(-5, 0);
+            this.ctx.lineTo(105, 0);
+            this.ctx.stroke();
+            this.ctx.restore();
 
             //時間のレンダリング
             for(var i = 0; i < this.hourObj.length; i++){
@@ -101,7 +112,6 @@ var app = new Vue({
         */
         'hourData': function(hourData){
             this.hourObj = hourData;
-            this.draw();
         }
     }
 });
