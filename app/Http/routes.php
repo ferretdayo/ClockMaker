@@ -13,4 +13,3 @@
 
 Route::get('/', 'TweetController@index');
 Route::post('/', 'TweetController@authenticate');
-Route::get('/get', 'TweetController@get');
