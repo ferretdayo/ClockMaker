@@ -112,6 +112,7 @@ var app = new Vue({
         */
         'hourData': function(hourData){
             this.hourObj = hourData;
+            this.draw();
         }
     }
 });
