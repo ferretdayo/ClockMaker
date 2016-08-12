@@ -48,7 +48,7 @@ class TweetController extends BaseController
             $connection = new TwitterOAuth(env('API_KEY'), env('API_SECRET'), $access_token['oauth_token'], $access_token['oauth_token_secret']);
             $media = $connection->upload('media/upload', ['media' => Session::get('img')]);
             $parameters = [
-                'status' => "自分だけの時計を作成しました。APIからテスト",
+                'status' => "自分だけの時計を作成しました! https://clock-maker.herokuapp.com #ClockMaker",
                 'media_ids' => $media->media_id_string,
             ];
             try{
