@@ -5,18 +5,18 @@ var app = new Vue({
         cvs: document.getElementById('clock'),
         ctx: document.getElementById('clock').getContext('2d'),
         hourObj: [
-            {hour: 1, size: 40, x: 315, y: 140},
-            {hour: 2, size: 40, x: 365, y: 185},
+            {hour: 1, size: 40, x: 325, y: 145},
+            {hour: 2, size: 40, x: 375, y: 190},
             {hour: 3, size: 40, x: 390, y: 265},
-            {hour: 4, size: 40, x: 365, y: 340},
-            {hour: 5, size: 40, x: 315, y: 385},
-            {hour: 6, size: 40, x: 240, y: 405},
-            {hour: 7, size: 40, x: 175, y: 385},
-            {hour: 8, size: 40, x: 115, y: 340},
-            {hour: 9, size: 40, x: 90, y: 265},
-            {hour: 10, size: 40, x: 105, y: 190},
-            {hour: 11, size: 40, x: 155, y: 140},
-            {hour: 12, size: 40, x: 225, y: 120},
+            {hour: 4, size: 40, x: 370, y: 335},
+            {hour: 5, size: 40, x: 320, y: 385},
+            {hour: 6, size: 40, x: 250, y: 405},
+            {hour: 7, size: 40, x: 185, y: 385},
+            {hour: 8, size: 40, x: 130, y: 340},
+            {hour: 9, size: 40, x: 105, y: 265},
+            {hour: 10, size: 40, x: 135, y: 190},
+            {hour: 11, size: 40, x: 185, y: 140},
+            {hour: 12, size: 40, x: 250, y: 125},
         ]
     },
     methods: {
@@ -88,6 +88,7 @@ var app = new Vue({
             for(var i = 0; i < this.hourObj.length; i++){
                 this.ctx.save();
                 this.ctx.font = this.hourObj[i].size + 'px Century Gothic';
+                this.ctx.textAlign = "center";
                 this.ctx.fillText(this.hourObj[i].hour, this.hourObj[i].x, this.hourObj[i].y);
                 this.ctx.restore();
             }
