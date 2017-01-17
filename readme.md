@@ -2,7 +2,7 @@
 
 ## Application
 
-![ホーム画面](./resources/readme\clockmaker.png)
+![ホーム画面](./resources/readme/clockmaker.png)
 
 ## Usage
 
